@@ -1,0 +1,13 @@
+<p>login works!</p>
+
+<div class="form">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" [(ngModel)]="email" class="form-control" id="email">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">password</label>
+    <input type="password" [(ngModel)]="password" class="form-control" id="password">
+  </div>
+  <button (click)="save()" type="button" class="btn btn-primary">Invio</button>
+</div>

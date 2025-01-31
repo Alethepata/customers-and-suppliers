@@ -1,0 +1,20 @@
+<p>reviews-add works!</p>
+
+<div class="form">
+
+  <select [(ngModel)]="provider" class="form-select" aria-label="Default select example">
+    <option selected>Open this select menu</option>
+    <option *ngFor="let provider of providers" [value]="provider.id">{{provider.name}}</option>
+  </select>
+
+  <div class="mb-3">
+    <label for="rating" class="form-label">Email address</label>
+    <input type="number" min="0" max="5" [(ngModel)]="rating" class="form-control" id="rating">
+  </div>
+
+  <div class="mb-3">
+    <label for="comment" class="form-label">Example textarea</label>
+    <textarea [(ngModel)]="comment" class="form-control" id="comment" rows="3"></textarea>
+  </div>
+  <button (click)="submit()">Invia</button>
+</div>

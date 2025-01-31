@@ -1,0 +1,23 @@
+<p>universal-form works!</p>
+
+<div class="form">
+  <div class="mb-3">
+    <label for="name" class="form-label">name</label>
+    <input type="text" [(ngModel)]="name" class="form-control" id="name">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" [(ngModel)]="email" class="form-control" id="email">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">password</label>
+    <input type="password" [(ngModel)]="password" class="form-control" id="password">
+  </div>
+  <div class="form-check">
+    <input [(ngModel)]="supplier" class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+    <label class="form-check-label" for="flexCheckChecked">
+      Checked checkbox
+    </label>
+  </div>
+  <button (click)="save()" type="button" class="btn btn-primary">Invio</button>
+</div>

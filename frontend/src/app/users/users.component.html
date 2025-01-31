@@ -1,0 +1,32 @@
+<p>users works!</p>
+
+<!-- <select [(ngModel)]="filter" (click)="getFiltered()" class="form-select" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+  <option value="customer">Clienti</option>
+  <option value="supplier">Fornitori</option>
+</select> -->
+
+<div class="form-check">
+  <input [(ngModel)]="filter"  value="customer" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Clienti
+  </label>
+</div>
+<div class="form-check">
+  <input [(ngModel)]="filter" value="supplier" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+  <label class="form-check-label" for="flexRadioDefault2">
+    Fornitori
+  </label>
+</div>
+<button (click)="getUsers()">salva filtri</button>
+<button (click)="deleteFilter()">Elimina filtri</button>
+
+<div class="card" *ngFor="let user of users ">
+  <h1>{{user.name}}</h1>
+  <h3>{{user.email}}</h3>
+  <h3>{{user.is_supplier}}</h3>
+  <button (click)="delete(user.id)">Elimina</button>
+  <a [routerLink]="['/users/update/', user.id]">modifica</a>
+</div>
+<!-- keyvalue  -->
+
