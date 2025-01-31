@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import axios from 'axios';
+import { ApiService } from './utility/api.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import axios from 'axios';
 })
 export class AppComponent {
   title = 'frontend';
+  constructor(private ApiService: ApiService) { }
 
   menu = [
     { title: "home", path: "/home" },
@@ -21,17 +23,9 @@ export class AppComponent {
     { title: "reviews", path: "/reviews" },
   ];
 
-  logout() {
-      axios.post('http://127.0.0.1:8000/api/logout', null, {
-        headers: {
-          'Authorization': 'Bearer ' + localStorage['token']
-        }
-      })
-      .then(function (response) {
-        localStorage.removeItem('token');
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
+  async logout() {
+    localStorage.removeItem('token');
+    await this.ApiService.getApi('post', 'logout', true, null);
+
   }
 }

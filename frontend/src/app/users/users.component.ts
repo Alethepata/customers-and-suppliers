@@ -48,7 +48,7 @@ export class UsersComponent {
   async delete(id: any) {
     console.log(id);
     const url = 'users/' + id;
-    await this.ApiService.getApi('delete', url,this.token, null);
+    await this.ApiService.getApi('delete', url, this.token, null);
   }
 
   ngOnInit() {

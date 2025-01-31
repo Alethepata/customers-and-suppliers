@@ -20,10 +20,17 @@ export class LoginComponent {
   token = false;
 
   async getSave() {
-    await this.ApiService.getApi(this.method, this.apiUrl, this.token, {
+    const data = await this.ApiService.getApi(this.method, this.apiUrl, this.token, {
       email: this.email,
       password: this.password,
     });
+
+    if (localStorage['token']) {
+      localStorage.removeItem('token');
+    }
+
+    localStorage.setItem('token', data);
+
   }
 
   save(){
