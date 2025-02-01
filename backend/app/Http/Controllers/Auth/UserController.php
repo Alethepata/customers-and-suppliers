@@ -12,13 +12,13 @@ use App\Models\Review;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
-use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Requests\Auth\AddRequest;
 use App\Http\Requests\Auth\LoginRequest;
 
 class UserController extends Controller
 {
     // REGISTER
-    public function register(RegisterRequest $request){
+    public function register(AddRequest $request){
         $form_data = $request->all();
 
         $new_user = new User();
@@ -50,7 +50,6 @@ class UserController extends Controller
 
             return response()->json($token);
         };
-
     }
 
     // LOGOUT
@@ -75,7 +74,7 @@ class UserController extends Controller
     }
 
     // ADD NEW USER
-    public function store(Request $request){
+    public function store(AddRequest $request){
         $new_user = new User;
 
         $form_data = $request->all();
@@ -89,7 +88,7 @@ class UserController extends Controller
     }
 
     // EDIT USER
-    public function update(Request $request, User $id){
+    public function update(AddRequest $request, User $id){
         $form_data = $request->all();
 
         $id->password = Hash::make($form_data['password']);
@@ -108,7 +107,7 @@ class UserController extends Controller
     // SHOW ONLY THE USER WHO IS A PROVIDER
     public function provider()
     {
-        $providers = User::where('is_supplier', true)->get();
+        $providers = User::where('is_provider', true)->get();
         return response()->json($providers);
     }
 
@@ -120,7 +119,3 @@ class UserController extends Controller
         return response()->json( $reviews);
     }
 }
-
-// 1|JPQ8CLoDQClln3OHNdPjH2r3YMHs8W679yjsRITj0fc46b90
-
-// 2|aLKTXfet6OMaP6lFybuM0tLHBqAlhHM4Q4e56PRNe4690abd

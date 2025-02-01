@@ -11,6 +11,7 @@ import { ApiService } from './utility/api.service';
 })
 export class AppComponent {
   title = 'frontend';
+
   constructor(private ApiService: ApiService) { }
 
   menu = [

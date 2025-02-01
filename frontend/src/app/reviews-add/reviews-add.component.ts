@@ -23,7 +23,7 @@ export class ReviewsAddComponent {
     const apiUrl = 'providers';
     const token = true;
 
-    await this.ApiService.getApi(method, apiUrl, token, null)
+    this.providers = await this.ApiService.getApi(method, apiUrl, token, null);
   }
 
   async submit() {

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class AddRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class RegisterRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'min:3', 'max:100'],
             'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            'password' => ['required', 'string', 'min:8'],
+            'is_provider' => ['required']
         ];
     }
 
@@ -36,6 +37,8 @@ class RegisterRequest extends FormRequest
             'name.max' => 'Il nome deve avere massimo :max caratteri',
             'email.required' => 'Inserire l\'email',
             'password.required' => 'Inserire la password',
+            'password.min' => 'La password deve avere almeno :min caratteri',
+            'is_provider.required' => 'Inserire tipologia',
         ];
     }
 }

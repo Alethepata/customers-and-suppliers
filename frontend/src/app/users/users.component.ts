@@ -23,15 +23,15 @@ export class UsersComponent {
     this.users = [];
     const data = await this.ApiService.getApi('get', 'users', this.token, null);
 
-    if (this.filter == 'supplier') {
-      data.forEach((user: { is_supplier: number; }) => {
-        if (user.is_supplier == 1) {
+    if (this.filter == 'provider') {
+      data.forEach((user: { is_provider: number; }) => {
+        if (user.is_provider == 1) {
           this.users.push(user);
         }
       })
     } else if (this.filter == 'customer') {
-      data.forEach((user: { is_supplier: number; }) => {
-        if (user.is_supplier == 0) {
+      data.forEach((user: { is_provider: number; }) => {
+        if (user.is_provider == 0) {
           this.users.push(user);
         }
       })

@@ -5,8 +5,8 @@ import axios from 'axios';
   providedIn: 'root'
 })
 export class ApiService {
-
   constructor() { }
+
   async getApi(method:any, apiUrl: any, token: any, data: any) {
     const authorization = 'Bearer ' + localStorage['token'];
 

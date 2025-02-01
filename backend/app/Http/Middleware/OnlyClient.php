@@ -15,7 +15,7 @@ class OnlyClient
     {
         $user = User::find(Auth::id());
 
-        if($user->is_supplier == false){
+        if($user->is_provider == false){
             return $next($request);
         }else{
             return response()->json('Non puoi lasciare recensioni');

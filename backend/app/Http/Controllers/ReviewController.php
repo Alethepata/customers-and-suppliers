@@ -9,9 +9,12 @@ use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\Http\Requests\Reviews\AddRequest;
+
+
 class ReviewController extends Controller
 {
-    public function store(Request $request)
+    public function store(AddRequest $request)
     {
         $new_review = new Review;
 

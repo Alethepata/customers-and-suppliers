@@ -21,7 +21,7 @@ class OnlyCreated
         if(Auth::id() == $user->created_by_user_id){
             return $next($request);
         }else{
-            return response()->json('404');
+            return response()->json('Error 404');
         }
     }
 }

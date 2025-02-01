@@ -13,7 +13,7 @@ export class UserComponent {
 
   name: string | undefined ;
   email: string | undefined;
-  is_supplier: number | undefined;
+  is_provider: number | undefined;
 
   async getUser() {
     const method = 'get';
@@ -23,7 +23,7 @@ export class UserComponent {
     const data = await this.ApiService.getApi(method, apiUrl, token, null);
     this.name = data.name;
     this.email = data.email;
-    this.is_supplier = data.is_supplier;
+    this.is_provider = data.is_provider;
   }
 
   ngOnInit() {

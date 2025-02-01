@@ -15,11 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('is_supplier')->default(0);
+            $table->boolean('is_provider')->default(0);
             $table->unsignedBigInteger('created_by_user_id')->nullable();
-            // $table->rememberToken();
             $table->timestamps();
         });
 

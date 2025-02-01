@@ -16,7 +16,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'is_supplier'
+        'is_provider'
     ];
 
     protected $hidden = [
@@ -33,7 +33,6 @@ class User extends Authenticatable
     }
 
     public function reviews(){
-
         return $this->hasMany(Review::class);
     }
 }
