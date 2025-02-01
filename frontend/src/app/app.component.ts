@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { ApiService } from './utility/api.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ApiService } from './utility/api.service';
 export class AppComponent {
   title = 'frontend';
 
-  constructor(private ApiService: ApiService) { }
+  constructor(private ApiService: ApiService, private router: Router) { }
 
   menu = [
     { title: "home", path: "/home" },
@@ -26,5 +26,6 @@ export class AppComponent {
   async logout() {
     await this.ApiService.getApi('post', 'logout', true, null);
     localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 }

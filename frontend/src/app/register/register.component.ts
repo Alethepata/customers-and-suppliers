@@ -11,6 +11,7 @@ export class RegisterComponent {
   apiUrl = 'register';
   token = null;
   method = 'post';
+  redirect = '/login';
 }
 
 

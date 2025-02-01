@@ -6,6 +6,8 @@
   <option value="supplier">Fornitori</option>
 </select> -->
 
+<a [routerLink]="['/users/add']">Aggiungi</a>
+
 <div class="form-check">
   <input [(ngModel)]="filter"  value="customer" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1">
@@ -28,5 +30,3 @@
   <button (click)="delete(user.id)">Elimina</button>
   <a [routerLink]="['/users/update/', user.id]">modifica</a>
 </div>
-<!-- keyvalue  -->
-

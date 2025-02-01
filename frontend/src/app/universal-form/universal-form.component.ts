@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../utility/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-universal-form',
@@ -9,11 +10,12 @@ import { ApiService } from '../utility/api.service';
   styleUrl: './universal-form.component.css'
 })
 export class UniversalFormComponent {
-  constructor(private ApiService: ApiService) { }
+  constructor(private ApiService: ApiService, private router: Router) { }
 
   @Input() apiUrl: any;
   @Input() token: any;
   @Input() method: any;
+  @Input() redirect: any;
 
   name: string | undefined;
   email: string | undefined;
@@ -33,5 +35,6 @@ export class UniversalFormComponent {
 
   save(){
     this.getSave();
+    this.router.navigate([this.redirect]);
   }
 }

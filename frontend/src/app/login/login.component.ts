@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../utility/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { ApiService } from '../utility/api.service';
 })
 
 export class LoginComponent {
-  constructor(private ApiService: ApiService) { }
+  constructor(private ApiService: ApiService, private router: Router) { }
 
   email: string | undefined;
   password: number | undefined;
@@ -30,12 +31,11 @@ export class LoginComponent {
     }
 
     localStorage.setItem('token', data);
-
   }
 
-  save(){
+  submit(){
     this.getSave();
-
+    this.router.navigate(['/dashboard']);
   }
 
 }

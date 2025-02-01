@@ -11,4 +11,5 @@ export class UsersAddComponent {
   apiUrl = 'users';
   token = true;
   method = 'post';
+  redirect = '/users';
 }
