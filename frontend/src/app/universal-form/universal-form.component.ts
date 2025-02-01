@@ -47,6 +47,8 @@ export class UniversalFormComponent {
 
     if (!this.email) {
       this.messageEmail = 'Compilare campo';
+    } else if (!this.email.includes('@')) {
+      this.messageEmail = 'Inserire email valida';
     }
 
     if (!this.password) {
@@ -60,7 +62,8 @@ export class UniversalFormComponent {
       && this.email
       && this.name.length >= 3
       && this.name.length <= 100
-      && this.password.length >= 8) {
+      && this.password.length >= 8
+      && this.email.includes('@')) {
         correctData = true;
     }
 
