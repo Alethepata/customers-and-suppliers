@@ -1,0 +1,24 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { ApiService } from '../../utility/api.service';
+
+@Component({
+  selector: 'app-navbar',
+  imports: [RouterOutlet, RouterLink, CommonModule],
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.css'
+})
+export class NavbarComponent {
+
+  menu = [
+    { title: "home", path: "/" },
+    { title: "register", path: "/register" },
+    { title: "login", path: "/login" },
+    // { title: "user", path: "/user" },
+    // { title: "users", path: "/users" },
+    // { title: "reviews", path: "/reviews" },
+  ];
+
+
+}

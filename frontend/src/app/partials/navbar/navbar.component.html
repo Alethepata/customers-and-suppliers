@@ -1,0 +1,21 @@
+<nav class="navbar">
+
+  <div class="container-fluid">
+
+    <div class="">
+      Lorem, ipsum.
+    </div>
+
+    <div class="">
+      <ul class="nav nav-underline">
+
+        <li *ngFor="let item of menu" class="nav-item">
+          <a class="nav-link" [routerLink]="[item.path]">{{item.title}}</a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+
+</nav>

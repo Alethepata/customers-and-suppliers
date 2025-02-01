@@ -11,7 +11,7 @@ import { UsersUpdateComponent } from './users-update/users-update.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
-  {path:"home", component: HomeComponent},
+  {path:"", component: HomeComponent},
   {path:"register", component: RegisterComponent},
   {path:"login", component: LoginComponent},
   {path:"user", component: UserComponent },

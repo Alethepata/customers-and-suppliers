@@ -1,14 +1,13 @@
-<h1>Home</h1>
+<header>
+  <app-navbar></app-navbar>
+</header>
 
-<nav>
-  <ul>
-    <li *ngFor="let item of menu ">
-      <a [routerLink]="[item.path]">{{item.title}}</a>
-    </li>
-    <li>
-      <button (click)="logout()">Logout</button>
-    </li>
-  </ul>
-</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>
 
-<router-outlet></router-outlet>
+
+
+
+
+
