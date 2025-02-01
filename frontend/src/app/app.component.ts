@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import axios from 'axios';
 import { ApiService } from './utility/api.service';
 
 @Component({
@@ -24,8 +23,7 @@ export class AppComponent {
   ];
 
   async logout() {
-    localStorage.removeItem('token');
     await this.ApiService.getApi('post', 'logout', true, null);
-
+    localStorage.removeItem('token');
   }
 }
