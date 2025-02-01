@@ -19,6 +19,10 @@ export class ReviewsAddComponent {
 
   providers: any[] = [];
 
+  messageRating: any;
+  messageProvider: any;
+
+
   async getProviders() {
     const method = 'get';
     const apiUrl = 'providers';
@@ -28,17 +32,43 @@ export class ReviewsAddComponent {
   }
 
   async submit() {
-    const method = 'post';
-    const apiUrl = 'reviews';
-    const token = true;
+    let correctData = false;
 
-    await this.ApiService.getApi(method, apiUrl, token, {
-      rating: this.rating,
-      comment: this.comment,
-      provider_id: this.provider
-    });
+    this.messageProvider = "";
+    this.messageRating = "";
 
-    this.router.navigate(['/reviews']);
+    if (this.provider == undefined) {
+      this.messageProvider = 'Compilare campo';
+    }
+
+    if (this.rating == undefined ) {
+      this.messageRating = 'Compilare campo';
+    } else if (this.rating < 0) {
+      this.messageRating = 'Il voto minimo è 0';
+    }else if (this.rating > 5) {
+      this.messageRating = 'Il voto massimo è 5';
+    }
+
+    if (this.rating != undefined
+      && this.provider != undefined
+      && this.rating >= 0
+      && this.rating <= 5) {
+        correctData = true;
+    }
+
+    if (correctData) {
+      const method = 'post';
+      const apiUrl = 'reviews';
+      const token = true;
+
+      await this.ApiService.getApi(method, apiUrl, token, {
+        rating: this.rating,
+        comment: this.comment,
+        provider_id: this.provider
+      });
+
+      this.router.navigate(['/reviews']);
+    }
   }
 
   ngOnInit() {

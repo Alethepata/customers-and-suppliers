@@ -6,10 +6,12 @@
     <option selected>Open this select menu</option>
     <option *ngFor="let provider of providers" [value]="provider.id">{{provider.name}}</option>
   </select>
+  <div [innerHTML]="messageProvider"></div>
 
   <div class="mb-3">
     <label for="rating" class="form-label">Email address</label>
     <input type="number" min="0" max="5" [(ngModel)]="rating" class="form-control" id="rating">
+    <div [innerHTML]="messageRating"></div>
   </div>
 
   <div class="mb-3">

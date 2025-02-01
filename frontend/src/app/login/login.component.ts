@@ -14,28 +14,51 @@ export class LoginComponent {
   constructor(private ApiService: ApiService, private router: Router) { }
 
   email: string | undefined;
-  password: number | undefined;
+  password: string | undefined;
 
   method = 'post';
   apiUrl = 'login';
   token = false;
 
-  async getSave() {
-    const data = await this.ApiService.getApi(this.method, this.apiUrl, this.token, {
-      email: this.email,
-      password: this.password,
-    });
+  messageEmail: any;
+  messagePassword: any;
 
-    if (localStorage['token']) {
-      localStorage.removeItem('token');
+
+  async getSave() {
+    let correctData = false;
+
+    this.messageEmail = "";
+    this.messagePassword = "";
+
+    if (!this.email) {
+      this.messageEmail = 'Compilare campo';
     }
 
-    localStorage.setItem('token', data);
+    if (!this.password) {
+      this.messagePassword = 'Compilare campo';
+    }
+
+    if (this.password && this.email) {
+      correctData = true;
+    }
+    if (correctData) {
+      const data = await this.ApiService.getApi(this.method, this.apiUrl, this.token, {
+        email: this.email,
+        password: this.password,
+      });
+
+      if (localStorage['token']) {
+        localStorage.removeItem('token');
+      }
+
+      localStorage.setItem('token', data);
+
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   submit(){
     this.getSave();
-    this.router.navigate(['/dashboard']);
   }
 
 }
