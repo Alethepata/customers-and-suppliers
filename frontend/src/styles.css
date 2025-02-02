@@ -17,7 +17,7 @@ main{
 
 .form{
   border: 1px solid #4683b4a2;
-  border-radius: 50px;
+  border-radius: 30px;
 }
 
 .form input{
@@ -42,15 +42,15 @@ a{
   text-decoration-line: none;
 }
 
-/* header{
-  height: 70px;
-  background-color: brown;
+.container-custom{
+  width: 40%;
+  margin: 0 auto;
+}
+.card-wrapper .card{
+  width: 300px;
 }
 
 
-header, main{
-  width: 100%;
-} */
 
   /* background-color: #4169E1; */
   /* background-color: #87CEEB; */

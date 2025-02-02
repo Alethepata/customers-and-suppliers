@@ -11,5 +11,5 @@ export class UsersAddComponent {
   apiUrl = 'users';
   token = true;
   method = 'post';
-  redirect = '/users';
+  redirect = '/dashboard/users';
 }

@@ -4,4 +4,6 @@
 
 .content{
   width: calc(100% - 175px);
+  height: 100%;
+  overflow-y: auto;
 }

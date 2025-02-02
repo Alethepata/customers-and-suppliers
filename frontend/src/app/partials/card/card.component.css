@@ -1,0 +1,7 @@
+.card{
+  border: 1px solid #4683b4a2;
+  border-radius: 30px;
+}
+.card-header-custom{
+  border-bottom: 1px solid #4683b4a2;
+}

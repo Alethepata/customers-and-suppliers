@@ -4,16 +4,17 @@ import { CommonModule } from '@angular/common';
 import { ApiService } from '../utility/api.service';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CardComponent } from '../partials/card/card.component';
 
 @Component({
   selector: 'app-users',
-  imports: [CommonModule, RouterLink, FormsModule],
+  imports: [CommonModule, RouterLink, FormsModule, CardComponent],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
 
 export class UsersComponent {
-  constructor(private ApiService: ApiService, private router: Router) { }
+  constructor(private ApiService: ApiService) { }
 
   users: any[] = [];
   token = true;
@@ -50,11 +51,11 @@ export class UsersComponent {
     this.getUsers();
   }
 
-  async delete(id: any) {
-    const url = 'users/' + id;
-    await this.ApiService.getApi('delete', url, this.token, null);
-    this.ngOnInit();
-  }
+  // async delete(id: any) {
+  //   const url = 'users/' + id;
+  //   await this.ApiService.getApi('delete', url, this.token, null);
+  //   this.ngOnInit();
+  // }
 }
 
 
