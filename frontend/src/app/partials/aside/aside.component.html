@@ -1,0 +1,24 @@
+<aside>
+  <div class="conteiner-custom">
+
+    <div class="w-100">
+      <ul>
+        <li *ngFor="let item of menu" class="nav-item mb-3 d-flex justify-between items-center gap-2">
+          <div class="text-center">
+            <i [class]="item.class" class=""></i>
+          </div>
+          <div class="">
+            <a class="nav-link" [routerLink]="[item.path]">{{item.title}}</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="">
+      <button (click)="logout()">Logout</button>
+    </div>
+
+  </div>
+</aside>
+
+

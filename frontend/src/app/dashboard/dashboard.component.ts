@@ -1,19 +1,14 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../utility/api.service';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
+import { AsideComponent } from '../partials/aside/aside.component';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [AsideComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-  constructor(private ApiService: ApiService, private router: Router) { }
 
-  async logout() {
-    await this.ApiService.getApi('post', 'logout', true, null);
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
-  }
 }

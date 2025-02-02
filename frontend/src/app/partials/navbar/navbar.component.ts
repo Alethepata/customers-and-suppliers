@@ -15,9 +15,6 @@ export class NavbarComponent {
     { title: "home", path: "/" },
     { title: "register", path: "/register" },
     { title: "login", path: "/login" },
-    // { title: "user", path: "/user" },
-    // { title: "users", path: "/users" },
-    // { title: "reviews", path: "/reviews" },
   ];
 
 
