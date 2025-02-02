@@ -1,14 +1,38 @@
 body{
   height: 100vh;
   overflow: hidden;
+  background-color: white;
 }
 
 main{
-  /* padding-top: 60px; */
   height: calc(100% - 60px);
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+.container-form{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form{
+  border: 1px solid #4683b4a2;
+  border-radius: 50px;
+}
+
+.form input{
+  border-color: #4683b4a2;
+}
+
+.form button{
+  background-color: #4683b4a2;
+  border: none;
+}
+
+.form button:hover{
+  background-color: #003366;
+}
+
 
 /* header{
   height: 70px;
@@ -19,3 +43,9 @@ main{
 header, main{
   width: 100%;
 } */
+
+  /* background-color: #4169E1; */
+  /* background-color: #87CEEB; */
+  /* background-color: #4682B4; */
+  /* background-color: #191970; */
+  /* background-color: rgb(95, 2, 31); */

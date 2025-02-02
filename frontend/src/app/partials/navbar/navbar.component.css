@@ -1,13 +1,12 @@
 nav{
-  background-color: rgb(95, 2, 31);
+  background-color: #003366;
   height: 60px;
 }
 
 nav, a{
-  color: bisque;
-}
-
-a:hover{
   color: whitesmoke;
 }
 
+/* a:hover{
+  color: whitesmoke;
+} */

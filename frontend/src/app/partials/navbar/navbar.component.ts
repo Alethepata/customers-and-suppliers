@@ -5,7 +5,7 @@ import { ApiService } from '../../utility/api.service';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterOutlet, RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

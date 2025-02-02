@@ -1,8 +1,9 @@
 .jumbotron{
-  background-color: bisque;
+  background-color: #4683b4a2;
 }
 .container-custom{
   width: 60%;
   margin: 0 auto;
-  padding: 80px 0;
+  padding: 100px 0;
+  color: whitesmoke;
 }
