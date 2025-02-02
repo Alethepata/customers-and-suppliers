@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../utility/api.service';
-import { Router, RouterOutlet } from '@angular/router';
 import { AsideComponent } from '../partials/aside/aside.component';
+import { AppComponent } from "../app.component";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [AsideComponent],
+  imports: [AsideComponent, AppComponent, RouterOutlet],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

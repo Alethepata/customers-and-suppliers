@@ -13,9 +13,10 @@ export class AsideComponent {
   constructor(private ApiService: ApiService, private router: Router) { }
 
   menu = [
-    { title: "User", path: "/user", class: 'fa-solid fa-user'},
-    { title: "Users", path: "/users", class: 'fa-solid fa-users' },
-    { title: "Reviews", path: "/reviews", class: 'fa-solid fa-comments' },
+    // { title: "Dashboard", path: "/dashboard", class: 'fa-solid fa-chart-line'},
+    { title: "User", path: "user", class: 'fa-solid fa-user'},
+    { title: "Users", path: "users", class: 'fa-solid fa-users' },
+    { title: "Reviews", path: "reviews", class: 'fa-solid fa-comments' },
   ];
 
   async logout() {

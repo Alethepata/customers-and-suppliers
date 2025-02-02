@@ -1,0 +1,7 @@
+.sidebar{
+  height: 100%;
+}
+
+.content{
+  width: calc(100% - 175px);
+}
