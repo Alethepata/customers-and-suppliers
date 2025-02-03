@@ -6,7 +6,9 @@
 
 </div>
 
-<div class="container-reviews">
+<app-loader *ngIf="loader"></app-loader>
+
+<div *ngIf="!loader" class="container-reviews">
   <div *ngFor="let provider of providers">
 
     <div class="header d-flex justify-content-between align-items-center">

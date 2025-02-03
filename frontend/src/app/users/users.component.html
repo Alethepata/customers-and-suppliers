@@ -45,7 +45,9 @@
     </div>
   </div>
 
-  <div class="card-wrapper gap-4 py-3">
+  <app-loader *ngIf="loader"></app-loader>
+
+  <div *ngIf="!loader" class="card-wrapper gap-4 py-3">
     <app-card
       *ngFor="let user of users"
       [name]="user.name"

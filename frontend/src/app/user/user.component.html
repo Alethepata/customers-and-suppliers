@@ -1,6 +1,7 @@
 <div class="container">
   <h1>Profilo</h1>
-  <div class="container-custom py-3">
+  <app-loader *ngIf="loader"></app-loader>
+  <div *ngIf="!loader" class="container-custom py-3">
     <app-card
       [name]="name"
       [email]="email"

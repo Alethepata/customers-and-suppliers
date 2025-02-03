@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import axios from 'axios';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../utility/api.service';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from '../partials/card/card.component';
+import { LoaderComponent } from '../partials/loader/loader.component';
 
 @Component({
   selector: 'app-users',
-  imports: [CommonModule, RouterLink, FormsModule, CardComponent],
+  imports: [CommonModule, RouterLink, FormsModule, CardComponent, LoaderComponent],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
@@ -17,8 +17,9 @@ export class UsersComponent {
   constructor(private ApiService: ApiService) { }
 
   users: any[] = [];
-  token = true;
   filter: string | undefined;
+  token = true;
+  loader = true;
 
   async getUsers() {
     this.users = [];
@@ -40,6 +41,7 @@ export class UsersComponent {
     } else {
       this.users = data;
     }
+    this.loader = false;
   }
 
   deleteFilter() {
