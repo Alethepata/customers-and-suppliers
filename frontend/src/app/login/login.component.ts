@@ -32,13 +32,16 @@ export class LoginComponent {
 
     if (!this.email) {
       this.messageEmail = 'Compilare campo';
+    } else if (!this.email.includes('@')) {
+      this.messageEmail = 'Inserire email valida';
     }
+
 
     if (!this.password) {
       this.messagePassword = 'Compilare campo';
     }
 
-    if (this.password && this.email) {
+    if (this.password && this.email && this.email.includes('@')) {
       correctData = true;
     }
     if (correctData) {
@@ -47,13 +50,22 @@ export class LoginComponent {
         password: this.password,
       });
 
-      if (localStorage['token']) {
-        localStorage.removeItem('token');
+      if (data == 'Credenziali non valide') {
+        this.messageEmail = "Credenziali non valide";
+        this.messagePassword = "Credenziali non valide";
+      } else {
+
+        if (localStorage['token']) {
+          localStorage.removeItem('token');
+        }
+
+        localStorage.setItem('token', data);
+
+        this.router.navigate(['/dashboard']);
+
       }
+      // console.log(data == 'Credenziali non valide');
 
-      localStorage.setItem('token', data);
-
-      this.router.navigate(['/dashboard']);
     }
   }
 
