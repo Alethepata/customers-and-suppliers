@@ -18,6 +18,7 @@
     <div class="mb-3">
       <label for="comment" class="form-label">Commento</label>
       <textarea [(ngModel)]="comment" class="form-control" id="comment" rows="3"></textarea>
+      <div class="error-message" [innerHTML]="messageComment"></div>
     </div>
     <button (click)="submit()">Invia</button>
   </div>

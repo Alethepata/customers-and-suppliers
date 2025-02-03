@@ -21,6 +21,7 @@ export class ReviewsAddComponent {
 
   messageRating: any;
   messageProvider: any;
+  messageComment: any;
 
 
   async getProviders() {
@@ -36,6 +37,7 @@ export class ReviewsAddComponent {
 
     this.messageProvider = "";
     this.messageRating = "";
+    this.messageComment = "";
 
     if (this.provider == undefined) {
       this.messageProvider = 'Compilare campo';
@@ -49,11 +51,21 @@ export class ReviewsAddComponent {
       this.messageRating = 'Il voto massimo è 5';
     }
 
+    if (this.comment && this.comment.length > 255) {
+      this.messageComment = 'Il commento può avere massimo 255 caratteri';
+    }
+
     if (this.rating != undefined
       && this.provider != undefined
       && this.rating >= 0
       && this.rating <= 5) {
-        correctData = true;
+
+        if (this.comment && this.comment.length < 255) {
+          correctData = true;
+        } else if (!this.comment) {
+          correctData = true;
+      }
+
     }
 
     if (correctData) {
