@@ -11,5 +11,8 @@ aside{
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
+}
+
+a, i {
   color: whitesmoke;
 }

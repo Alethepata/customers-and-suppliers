@@ -1,19 +1,21 @@
 <div class="container">
 
   <div class="d-flex align-items-center justify-content-between">
+
     <div class="d-flex align-items-center gap-3">
       <h1>Utenti</h1>
       <a [routerLink]="['add']"><i class="fa-regular fa-square-plus fs-3"></i></a>
     </div>
 
     <button class="fs-5 filter-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Filtro <i class="fa-solid fa-filter"></i></button>
+
   </div>
 
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
+    <div class="offcanvas-header align-items-center">
 
       <h5 class="offcanvas-title" id="offcanvasRightLabel">Filtri</h5>
-      <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button> -->
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
     </div>
 

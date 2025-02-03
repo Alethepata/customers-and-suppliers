@@ -3,10 +3,6 @@ nav{
   height: 60px;
 }
 
-nav, a{
+nav, a, h6{
   color: whitesmoke;
 }
-
-/* a:hover{
-  color: whitesmoke;
-} */
