@@ -16,6 +16,7 @@ export class ReviewsComponent {
   providers: any[] = [];
   reviews: any[] = [];
   token = true;
+  user = '';
 
   async getProvider() {
     const data = await this.ApiService.getApi('get', 'providers', this.token, null);

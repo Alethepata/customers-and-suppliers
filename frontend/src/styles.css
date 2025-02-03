@@ -47,6 +47,12 @@ a{
   margin: 0 auto;
 }
 
+.card-wrapper{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .card-wrapper .card{
   width: 350px;
   height: 100%;
