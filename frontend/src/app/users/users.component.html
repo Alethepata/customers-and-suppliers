@@ -1,14 +1,22 @@
 <div class="container p-5">
 
-  <a [routerLink]="['add']">Aggiungi</a>
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center gap-3">
+      <h1>Utenti</h1>
+      <a [routerLink]="['add']"><i class="fa-regular fa-square-plus fs-3"></i></a>
+    </div>
 
-  <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">filtri</button>
+    <button class="fs-5 filter-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Filtro <i class="fa-solid fa-filter"></i></button>
+  </div>
 
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
+
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Filtri</h5>
+      <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button> -->
+
     </div>
+
     <div class="offcanvas-body">
       <div class="">
 
@@ -26,12 +34,12 @@
           </label>
         </div>
 
-        <div class="">
-          <button (click)="getUsers()">salva filtri</button>
-          <button (click)="deleteFilter()">Elimina filtri</button>
+        <div class="text-center">
+          <button class="btn btn-success me-2" (click)="getUsers()">Salva</button>
+          <button class="btn btn-danger" (click)="deleteFilter()">Elimina</button>
         </div>
-
       </div>
+
     </div>
   </div>
 

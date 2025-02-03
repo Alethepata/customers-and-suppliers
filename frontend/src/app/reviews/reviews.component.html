@@ -1,32 +1,38 @@
-<p>reviews works!</p>
-<a routerLink="/dashboard/reviews/add/">Aggiungi recensione</a>
+<div class="container p-5">
+  <div class="d-flex gap-3 align-items-center">
+    <h1>Recensioni</h1>
+    <a routerLink="/dashboard/reviews/add/"><i class="fa-regular fa-square-plus fs-3"></i></a>
+  </div>
 
-<div class="card-wrapper d-flex flex-wrap gap-4 justify-content-center">
-  <!-- <app-card
-    *ngFor="let provider of providers"
-    [name]="provider.name"
-    [email]="provider.email"
-    [isProvider]="provider.is_provider == 0 ? 'Cliente' : 'Fornitore'"
-    [id]="provider.id"
-    [delete]="true"
-    [edit]="true"
-    [token]="true"
-    [function]="getReviews(provider.id)">
-  </app-card> -->
 </div>
 
-<!-- <div class="card" *ngFor="let provider of providers ">
-  <h1>{{provider.name}}</h1>
-  <h3>{{provider.email}}</h3>
-  <h3>{{provider.is_supplier}}</h3>
-  <button (click)="getReviews(provider.id)">Mostra recensioni</button>
-  <div *ngFor="let review of reviews ">
+<!-- <div class="">
+  <ul>
+    <li *ngFor="let provider of providers">
+      <div>
+        <h1>{{provider.name}}</h1>
+
+        <button (click)="getReviews(provider.id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Mostra
+        </button>
+      </div>
+    </li>
+  </ul>
+</div> -->
+
+
+<div *ngFor="let provider of providers">
+  <div class="d-flex  align-items-center">
+    <h4>{{provider.name}}</h4>
+    <button class="fs-5" (click)="getReviews(provider.id)"><i class="fa-regular fa-eye"></i></button>
+  </div>
+  <div *ngFor="let review of reviews">
     <div *ngIf="review.provider_id == provider.id">
       <h1>{{review.rating}}</h1>
       <h3>{{review.comment}}</h3>
     </div>
   </div>
 
-</div> -->
+</div>
 
 <router-outlet></router-outlet>
