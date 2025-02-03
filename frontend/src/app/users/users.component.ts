@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import axios from 'axios';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../utility/api.service';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from '../partials/card/card.component';
 
@@ -22,6 +22,7 @@ export class UsersComponent {
 
   async getUsers() {
     this.users = [];
+
     const data = await this.ApiService.getApi('get', 'users', this.token, null);
 
     if (this.filter == 'provider') {
@@ -49,13 +50,8 @@ export class UsersComponent {
 
   ngOnInit() {
     this.getUsers();
-  }
 
-  // async delete(id: any) {
-  //   const url = 'users/' + id;
-  //   await this.ApiService.getApi('delete', url, this.token, null);
-  //   this.ngOnInit();
-  // }
+  }
 }
 
 

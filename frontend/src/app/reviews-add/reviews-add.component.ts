@@ -67,7 +67,7 @@ export class ReviewsAddComponent {
         provider_id: this.provider
       });
 
-      this.router.navigate(['/reviews']);
+      this.router.navigate(['/dashboard/reviews']);
     }
   }
 

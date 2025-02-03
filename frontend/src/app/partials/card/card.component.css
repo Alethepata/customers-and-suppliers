@@ -2,6 +2,16 @@
   border: 1px solid #4683b4a2;
   border-radius: 30px;
 }
+
 .card-header-custom{
   border-bottom: 1px solid #4683b4a2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+button{
+  border: none;
+  background: none;
+}
+

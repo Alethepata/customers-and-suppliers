@@ -1,49 +1,33 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import axios from 'axios';
+import { ApiService } from '../utility/api.service';
+import { CardComponent } from '../partials/card/card.component';
 
 @Component({
   selector: 'app-reviews',
-  imports: [CommonModule, RouterOutlet, RouterLink],
+  imports: [CommonModule, RouterOutlet, RouterLink, CardComponent],
   templateUrl: './reviews.component.html',
   styleUrl: './reviews.component.css'
 })
 export class ReviewsComponent {
+  constructor(private ApiService: ApiService) { }
+
   providers: any[] = [];
   reviews: any[] = [];
+  token = true;
 
-  getApi() {
-    axios.get('http://127.0.0.1:8000/api/providers',{
-      headers: {
-        'Authorization': 'Bearer ' + localStorage['token']
-      }
-    })
-      .then((response) => {
-        this.providers = response.data
-        console.log(this.providers);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
+  async getProvider() {
+    const data = await this.ApiService.getApi('get', 'providers', this.token, null);
+    this.providers = data;
   }
 
-  getReviews(id: any) {
-    axios.get('http://127.0.0.1:8000/api/providers/' + id + '/reviews',{
-      headers: {
-        'Authorization': 'Bearer ' + localStorage['token']
-      }
-    })
-      .then((response) => {
-        this.reviews = response.data
-        console.log(this.reviews);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
+  async getReviews(id: any) {
+    const data = await this.ApiService.getApi('get', 'providers/' + id + '/reviews', this.token, null);
+    this.reviews = data;
   }
 
   ngOnInit() {
-    this.getApi();
+    this.getProvider();
   }
 }

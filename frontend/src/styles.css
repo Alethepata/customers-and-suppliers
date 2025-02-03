@@ -46,8 +46,10 @@ a{
   width: 40%;
   margin: 0 auto;
 }
+
 .card-wrapper .card{
-  width: 300px;
+  width: 350px;
+  height: 100%;
 }
 
 

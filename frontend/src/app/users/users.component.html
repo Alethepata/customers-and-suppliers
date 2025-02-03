@@ -1,41 +1,51 @@
-<a [routerLink]="['add']">Aggiungi</a>
+<div class="container p-5">
 
-<div class="">
+  <a [routerLink]="['add']">Aggiungi</a>
 
-  <div class="form-check">
-    <input [(ngModel)]="filter"  value="customer" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-    <label class="form-check-label" for="flexRadioDefault1">
-      Clienti
-    </label>
+  <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">filtri</button>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="">
+
+        <div class="form-check">
+          <input [(ngModel)]="filter"  value="customer" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Clienti
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input [(ngModel)]="filter" value="provider" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+          <label class="form-check-label" for="flexRadioDefault2">
+            Fornitori
+          </label>
+        </div>
+
+        <div class="">
+          <button (click)="getUsers()">salva filtri</button>
+          <button (click)="deleteFilter()">Elimina filtri</button>
+        </div>
+
+      </div>
+    </div>
   </div>
 
-  <div class="form-check">
-    <input [(ngModel)]="filter" value="supplier" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-    <label class="form-check-label" for="flexRadioDefault2">
-      Fornitori
-    </label>
-  </div>
-
-  <div class="">
-    <button (click)="getUsers()">salva filtri</button>
-    <button (click)="deleteFilter()">Elimina filtri</button>
+  <div class="card-wrapper d-flex flex-wrap gap-4 justify-content-center py-3">
+    <app-card
+      *ngFor="let user of users"
+      [name]="user.name"
+      [email]="user.email"
+      [isProvider]="user.is_provider == 0 ? 'Cliente' : 'Fornitore'"
+      [id]="user.id"
+      [delete]="true"
+      [edit]="true"
+      [token]="true">
+    </app-card>
   </div>
 
 </div>
-
-
-<div class="card-wrapper d-flex flex-wrap gap-4 justify-content-center">
-  <app-card
-    *ngFor="let user of users"
-    [name]="user.name"
-    [email]="user.email"
-    [isProvider]="user.is_provider == 0 ? 'Cliente' : 'Fornitore'"
-    [id]="user.id"
-    [delete]="true"
-    [edit]="true"
-    [token]="true"
-    [function]="getUsers()">
-  </app-card>
-</div>
-
-

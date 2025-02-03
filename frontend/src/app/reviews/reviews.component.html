@@ -1,7 +1,21 @@
 <p>reviews works!</p>
-<a routerLink="/reviews/add/">Aggiungi recensione</a>
+<a routerLink="/dashboard/reviews/add/">Aggiungi recensione</a>
 
-<div class="card" *ngFor="let provider of providers ">
+<div class="card-wrapper d-flex flex-wrap gap-4 justify-content-center">
+  <!-- <app-card
+    *ngFor="let provider of providers"
+    [name]="provider.name"
+    [email]="provider.email"
+    [isProvider]="provider.is_provider == 0 ? 'Cliente' : 'Fornitore'"
+    [id]="provider.id"
+    [delete]="true"
+    [edit]="true"
+    [token]="true"
+    [function]="getReviews(provider.id)">
+  </app-card> -->
+</div>
+
+<!-- <div class="card" *ngFor="let provider of providers ">
   <h1>{{provider.name}}</h1>
   <h3>{{provider.email}}</h3>
   <h3>{{provider.is_supplier}}</h3>
@@ -13,6 +27,6 @@
     </div>
   </div>
 
-</div>
+</div> -->
 
 <router-outlet></router-outlet>
