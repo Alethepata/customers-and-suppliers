@@ -15,17 +15,26 @@ export class ReviewsComponent {
 
   providers: any[] = [];
   reviews: any[] = [];
+  numbers: any[] = [];
   token = true;
-  user = '';
 
   async getProvider() {
     const data = await this.ApiService.getApi('get', 'providers', this.token, null);
     this.providers = data;
   }
 
+  generateNumber() {
+    let i = 0;
+    while (i <= 5) {
+      this.numbers.push(i);
+      i++;
+    }
+  }
+
   async getReviews(id: any) {
     const data = await this.ApiService.getApi('get', 'providers/' + id + '/reviews', this.token, null);
     this.reviews = data;
+    this.generateNumber()
   }
 
   ngOnInit() {

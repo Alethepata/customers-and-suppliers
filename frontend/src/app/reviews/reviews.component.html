@@ -22,14 +22,27 @@
           <div class="review" *ngIf="review.provider_id == provider.id">
 
             <div class="">
+
               <h5>Voto</h5>
-              {{review.rating}}
+
+              <div class="d-flex justify-content-center">
+                <div *ngFor="let number of numbers">
+                  <p class="ms-3" *ngIf="number < review.rating">
+                    &starf;
+                  </p>
+                  <p class="ms-3" *ngIf="number > review.rating">
+                    &star;
+                  </p>
+                </div>
+              </div>
+
             </div>
 
-            <div *ngIf="review.comment" class="mt-3">
+            <div class="mt-3">
               <h5>Commento</h5>
               <div class="comment">
-                <p>{{review.comment}}</p>
+                <p *ngIf="review.comment">{{review.comment}}</p>
+                <p *ngIf="!review.comment">Nessun commento</p>
               </div>
             </div>
 

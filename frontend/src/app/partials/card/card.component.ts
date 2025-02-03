@@ -19,14 +19,12 @@ export class CardComponent {
   @Input() delete: any;
   @Input() edit: any;
   @Input() token: any;
-  // @Input() function: any;
   @Input() data: any []= [];
 
 
   async getDelete(id: any) {
     const url = 'users/' + id;
     await this.ApiService.getApi('delete', url, this.token, null);
-    // this.function();
   }
 
 }
