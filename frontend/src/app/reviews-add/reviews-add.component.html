@@ -1,22 +1,25 @@
-<p>reviews-add works!</p>
+<div class="container-form py-5">
 
-<div class="form">
+  <div class="form p-5">
+    <div class="">
+      <label for="select" class="form-label">Fornitore *</label>
+      <select id="select" [(ngModel)]="provider" class="form-select" aria-label="Default select example">
+        <option *ngFor="let provider of providers" [value]="provider.id">{{provider.name}}</option>
+      </select>
+      <div class="error-message" [innerHTML]="messageProvider"></div>
+    </div>
 
-  <select [(ngModel)]="provider" class="form-select" aria-label="Default select example">
-    <option selected>Open this select menu</option>
-    <option *ngFor="let provider of providers" [value]="provider.id">{{provider.name}}</option>
-  </select>
-  <div [innerHTML]="messageProvider"></div>
+    <div class="my-3">
+      <label for="rating" class="form-label">Voto da 0 a 5 *</label>
+      <input type="number" min="0" max="5" [(ngModel)]="rating" class="form-control" id="rating">
+      <div class="error-message" [innerHTML]="messageRating"></div>
+    </div>
 
-  <div class="mb-3">
-    <label for="rating" class="form-label">Email address</label>
-    <input type="number" min="0" max="5" [(ngModel)]="rating" class="form-control" id="rating">
-    <div [innerHTML]="messageRating"></div>
+    <div class="mb-3">
+      <label for="comment" class="form-label">Commento</label>
+      <textarea [(ngModel)]="comment" class="form-control" id="comment" rows="3"></textarea>
+    </div>
+    <button (click)="submit()">Invia</button>
   </div>
 
-  <div class="mb-3">
-    <label for="comment" class="form-label">Example textarea</label>
-    <textarea [(ngModel)]="comment" class="form-control" id="comment" rows="3"></textarea>
-  </div>
-  <button (click)="submit()">Invia</button>
 </div>
