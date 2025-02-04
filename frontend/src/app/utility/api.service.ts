@@ -26,8 +26,8 @@ export class ApiService {
       return response.data;
 
     } catch (error) {
-      console.error(`Errore durante la chiamata API: ${error}`);
-      throw error;
+      // console.error(`Errore durante la chiamata API: ${error}`);
+      return  error;
     }
   }
 }

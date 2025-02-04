@@ -56,7 +56,7 @@ class UserController extends Controller
     public function logout(Request $request){
         $user = $request->user()->currentAccessToken()->delete();
 
-        return response()->json('logout');
+        return response()->json('Logout');
     }
 
     // DATA RECOVERY
@@ -84,7 +84,7 @@ class UserController extends Controller
 
         $new_user->save();
 
-        return response()->json($new_user);
+        return response()->json('Utente creato con sucesso');
     }
 
     // EDIT USER
@@ -116,6 +116,6 @@ class UserController extends Controller
     {
         $reviews = Review::where('provider_id', $id)->get();
 
-        return response()->json( $reviews);
+        return response()->json($reviews);
     }
 }

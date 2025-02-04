@@ -1,5 +1,13 @@
 <div class="container-form py-5">
 
+  <div *ngIf="errors.length != 0" class="errors alert alert-danger" role="alert">
+    <div class="error" *ngFor="let error of errors">
+      <div class="error-message" *ngFor="let message of error">
+        {{message}}
+      </div>
+    </div>
+  </div>
+
   <div class="form p-5">
 
     <div class="mb-3">

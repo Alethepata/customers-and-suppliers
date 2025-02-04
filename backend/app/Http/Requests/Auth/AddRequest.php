@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\User;
 
 class AddRequest extends FormRequest
 {
@@ -23,7 +24,7 @@ class AddRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'min:3', 'max:100'],
-            'email' => ['required', 'string', 'email'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'string', 'min:8'],
             'is_provider' => ['required']
         ];
@@ -36,6 +37,10 @@ class AddRequest extends FormRequest
             'name.min' => 'Il nome deve avere minimo :min caratteri',
             'name.max' => 'Il nome deve avere massimo :max caratteri',
             'email.required' => 'Inserire l\'email',
+            'email.lowercase' => 'L\'email deve essere scritta tutta in minuscolo',
+            'email.unique' => 'L\'indirizzo email esiste',
+            'email.max' => 'L\'email deve avere massimo :max lettere ',
+            'email.email' => 'L\'email deve avere un indirizzo valido ',
             'password.required' => 'Inserire la password',
             'password.min' => 'La password deve avere almeno :min caratteri',
             'is_provider.required' => 'Inserire tipologia',

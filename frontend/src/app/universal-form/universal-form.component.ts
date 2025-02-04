@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, ErrorHandler, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../utility/api.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-universal-form',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './universal-form.component.html',
   styleUrl: './universal-form.component.css'
 })
@@ -23,6 +24,8 @@ export class UniversalFormComponent {
   password: string | undefined;
   provider: boolean | undefined;
   id: number | undefined;
+  errors: any[] = [];
+  errorsMessage: any[] = [];
 
   messageName:any;
   messageEmail: any;
@@ -68,13 +71,31 @@ export class UniversalFormComponent {
     }
 
     if (correctData) {
-      await this.ApiService.getApi(this.method, this.apiUrl, this.token, {
+      const data = await this.ApiService.getApi(this.method, this.apiUrl, this.token, {
         name: this.name,
         email: this.email,
         password: this.password,
         is_provider: this.provider == true ? 1 : 0
       });
-      this.router.navigate([this.redirect]);
+
+      if (data.status != 200 && data.response) {
+
+        this.errors = [];
+
+        const name = data.response.data.errors.name
+        const email = data.response.data.errors.email
+        const password = data.response.data.errors.password
+
+        this.errors = [
+          name,
+          email,
+          password
+        ]
+
+      } else {
+        this.router.navigate([this.redirect]);
+      }
+
     }
   }
 
