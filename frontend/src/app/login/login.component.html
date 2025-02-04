@@ -1,22 +1,31 @@
-<div class="container-form py-5">
+<div class="container p-5">
 
-  <div class="form  p-5">
+  <h1>
+    Accedi
+  </h1>
 
-    <div class="mb-3">
-      <label for="email" class="form-label">Email *</label>
-      <input type="email" [(ngModel)]="email" class="form-control" id="email">
-      <div class="error-message" [innerHTML]="messageEmail"></div>
+  <div class="container-form">
+
+    <div class="form  p-5">
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email *</label>
+        <input type="email" [(ngModel)]="email" class="form-control" id="email">
+        <div class="error-message" [innerHTML]="messageEmail"></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password *</label>
+        <input type="password" [(ngModel)]="password" class="form-control" id="password">
+        <div class="error-message" [innerHTML]="messagePassword"></div>
+      </div>
+
+      <button (click)="submit()" type="button" class="btn btn-primary">Invio</button>
+
     </div>
-
-    <div class="mb-3">
-      <label for="password" class="form-label">Password *</label>
-      <input type="password" [(ngModel)]="password" class="form-control" id="password">
-      <div class="error-message" [innerHTML]="messagePassword"></div>
-    </div>
-
-    <button (click)="submit()" type="button" class="btn btn-primary">Invio</button>
 
   </div>
 
 </div>
+
 
