@@ -1,5 +1,9 @@
 <div class="container-form py-5">
 
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{errorMessage}}
+  </div>
+
   <div class="form p-5">
     <div class="">
       <label for="select" class="form-label">Fornitore *</label>

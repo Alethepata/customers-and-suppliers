@@ -22,6 +22,7 @@ export class ReviewsAddComponent {
   messageRating: any;
   messageProvider: any;
   messageComment: any;
+  errorMessage: any;
 
 
   async getProviders() {
@@ -73,13 +74,18 @@ export class ReviewsAddComponent {
       const apiUrl = 'reviews';
       const token = true;
 
-      await this.ApiService.getApi(method, apiUrl, token, {
+      const data = await this.ApiService.getApi(method, apiUrl, token, {
         rating: this.rating,
         comment: this.comment,
         provider_id: this.provider
       });
 
-      this.router.navigate(['/dashboard/reviews']);
+      if (data == 'Non puoi lasciare recensioni') {
+        this.errorMessage = data;
+      } else {
+        this.router.navigate(['/dashboard/reviews']);
+      }
+
     }
   }
 
