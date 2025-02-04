@@ -18,6 +18,7 @@ export class UsersUpdateComponent {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
+
     this.apiUrl = 'users/' + id;
   }
 

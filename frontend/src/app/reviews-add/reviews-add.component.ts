@@ -60,12 +60,11 @@ export class ReviewsAddComponent {
       && this.provider != undefined
       && this.rating >= 0
       && this.rating <= 5) {
-
         if (this.comment && this.comment.length < 255) {
           correctData = true;
         } else if (!this.comment) {
           correctData = true;
-      }
+        }
 
     }
 
@@ -85,7 +84,6 @@ export class ReviewsAddComponent {
       } else {
         this.router.navigate(['/dashboard/reviews']);
       }
-
     }
   }
 

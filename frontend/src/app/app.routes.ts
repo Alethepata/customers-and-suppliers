@@ -11,16 +11,18 @@ import { UsersUpdateComponent } from './users-update/users-update.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
-  {path:"", component: HomeComponent},
-  {path:"register", component: RegisterComponent},
+  { path: "", component: HomeComponent },
+  { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
 
-  {path: "dashboard", component: DashboardComponent, children: [
-      {path:"user", component: UserComponent},
-      {path:"users", component: UsersComponent},
-      {path:"users/add", component: UsersAddComponent },
-      {path:"users/update/:id", component: UsersUpdateComponent },
-      {path:"reviews", component:  ReviewsComponent},
-      {path:"reviews/add", component:  ReviewsAddComponent},
+  { path: "dashboard", component: DashboardComponent, children: [
+
+    { path: "user", component: UserComponent },
+    { path: "users", component: UsersComponent },
+    { path: "users/add", component: UsersAddComponent },
+    { path: "users/update/:id", component: UsersUpdateComponent },
+    { path: "reviews", component: ReviewsComponent },
+    { path: "reviews/add", component: ReviewsAddComponent },
+
   ]},
 ];

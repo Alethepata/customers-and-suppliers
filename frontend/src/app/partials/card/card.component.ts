@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ApiService } from '../../utility/api.service';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -24,6 +24,7 @@ export class CardComponent {
 
   async getDelete(id: any) {
     const url = 'users/' + id;
+
     await this.ApiService.getApi('delete', url, this.token, null);
   }
 

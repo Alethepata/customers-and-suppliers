@@ -34,7 +34,9 @@ class AddRequest extends FormRequest
             'rating.required' => 'Inserire il voto',
             'rating.min' => 'Il voto minimo è :min ',
             'rating.max' => 'Il voto massimo è :max ',
+
             'provider_id.required' => 'Inserire il fornitore',
+
             'comment.max' => 'Il commento può avere massimo :max caratteri ',
         ];
     }

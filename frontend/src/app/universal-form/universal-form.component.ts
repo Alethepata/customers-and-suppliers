@@ -1,4 +1,4 @@
-import { Component, ErrorHandler, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../utility/api.service';
 import { Router } from '@angular/router';
@@ -79,7 +79,6 @@ export class UniversalFormComponent {
       });
 
       if (data.status != 200 && data.response) {
-
         this.errors = [];
 
         const name = data.response.data.errors.name
@@ -91,11 +90,9 @@ export class UniversalFormComponent {
           email,
           password
         ]
-
       } else {
         this.router.navigate([this.redirect]);
       }
-
     }
   }
 

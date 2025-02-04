@@ -36,13 +36,16 @@ class AddRequest extends FormRequest
             'name.required' => 'Inserire il nome',
             'name.min' => 'Il nome deve avere minimo :min caratteri',
             'name.max' => 'Il nome deve avere massimo :max caratteri',
+
             'email.required' => 'Inserire l\'email',
             'email.lowercase' => 'L\'email deve essere scritta tutta in minuscolo',
             'email.unique' => 'L\'indirizzo email esiste',
             'email.max' => 'L\'email deve avere massimo :max lettere ',
             'email.email' => 'L\'email deve avere un indirizzo valido ',
+
             'password.required' => 'Inserire la password',
             'password.min' => 'La password deve avere almeno :min caratteri',
+
             'is_provider.required' => 'Inserire tipologia',
         ];
     }

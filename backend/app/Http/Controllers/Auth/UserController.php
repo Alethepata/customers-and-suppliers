@@ -108,6 +108,7 @@ class UserController extends Controller
     public function provider()
     {
         $providers = User::where('is_provider', true)->get();
+
         return response()->json($providers);
     }
 

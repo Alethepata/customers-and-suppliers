@@ -13,7 +13,6 @@ export class AsideComponent {
   constructor(private ApiService: ApiService, private router: Router) { }
 
   menu = [
-    // { title: "Dashboard", path: "/dashboard", class: 'fa-solid fa-chart-line'},
     { title: "User", path: "user", class: 'fa-solid fa-user'},
     { title: "Users", path: "users", class: 'fa-solid fa-users' },
     { title: "Reviews", path: "reviews", class: 'fa-solid fa-comments' },
@@ -21,7 +20,9 @@ export class AsideComponent {
 
   async logout() {
     await this.ApiService.getApi('post', 'logout', true, null);
+
     localStorage.removeItem('token');
+
     this.router.navigate(['/login']);
   }
 }

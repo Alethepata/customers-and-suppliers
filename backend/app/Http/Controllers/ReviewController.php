@@ -22,6 +22,7 @@ class ReviewController extends Controller
 
         $new_review->fill($form_data);
         $new_review->user_id = Auth::id();
+
         $new_review->save();
 
         return response()->json($new_review);

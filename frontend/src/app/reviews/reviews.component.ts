@@ -21,12 +21,14 @@ export class ReviewsComponent {
 
   async getProvider() {
     const data = await this.ApiService.getApi('get', 'providers', this.token, null);
+
     this.providers = data;
     this.loader = false;
   }
 
   generateNumber() {
     this.numbers = [];
+
     let i = 0;
     while (i <= 5) {
       this.numbers.push(i);
@@ -36,9 +38,12 @@ export class ReviewsComponent {
 
   async getReviews(id: any) {
     this.loader = true;
+
     const data = await this.ApiService.getApi('get', 'providers/' + id + '/reviews', this.token, null);
     this.reviews = data;
+
     this.generateNumber()
+
     this.loader = false;
   }
 

@@ -1,39 +1,55 @@
 <div class="card p-4">
 
   <div class="card-header-custom">
+
     <h2>{{isProvider}}</h2>
 
     <div class="button d-flex gap-3">
 
       <div *ngIf="edit" class="edit">
+
         <a [routerLink]="['update/', id]"><i class="fa-solid fa-pencil text-warning fs-5"></i></a>
+
       </div>
 
       <div *ngIf="delete" class="delete">
+
         <button (click)="getDelete(id)"><i class="fa-solid fa-trash-can text-danger fs-5"></i></button>
+
       </div>
 
     </div>
+
   </div>
 
   <div class="card-body">
 
     <div class="name d-flex gap-4">
+
       <h4>
         Nome:
       </h4>
+
       <div class="w-100 overflow-auto">
+
         <h4>{{name}}</h4>
+
       </div>
+
     </div>
 
     <div class="email d-flex gap-4">
+
       <h4>
         Email:
       </h4>
+
       <div class="w-100 overflow-auto">
+
         <h4>{{email}}</h4>
+
       </div>
+
     </div>
 
   </div>

@@ -31,6 +31,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'email.required' => 'Inserire l\'email',
+            'email.email' => 'L\'email deve avere un indirizzo valido ',
+
             'password.required' => 'Inserire la password',
         ];
     }
