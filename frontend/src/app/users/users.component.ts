@@ -22,25 +22,31 @@ export class UsersComponent {
   loader = true;
 
   async getUsers() {
+    this.loader = true;
     this.users = [];
 
     const data = await this.ApiService.getApi('get', 'users', this.token, null);
 
     if (this.filter == 'provider') {
+
       data.forEach((user: { is_provider: number; }) => {
         if (user.is_provider == 1) {
           this.users.push(user);
         }
       })
+
     } else if (this.filter == 'customer') {
+
       data.forEach((user: { is_provider: number; }) => {
         if (user.is_provider == 0) {
           this.users.push(user);
         }
       })
+
     } else {
       this.users = data;
     }
+
     this.loader = false;
   }
 
@@ -52,7 +58,6 @@ export class UsersComponent {
 
   ngOnInit() {
     this.getUsers();
-
   }
 }
 
